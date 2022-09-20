@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::get('/upload', [UploadController::class, 'uploadForm']); 
 
-Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
+Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload'); //(sätta ->name är bra så man slipper ändra url)
+
 
 
 

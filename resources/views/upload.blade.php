@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      <link rel="stylesheet" href="mystyle.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  </head>
 <body>
 
-<form method="post" action="{{route('upload.uploadfile')}}" enctype="multipart/form-data">
+<div>
+<form method="post" action="{{route('upload')}}" enctype="multipart/form-data">
   @csrf
-  <h3>Bildverktyg för sociala medier</h3>
+  <h1>Bildverktyg för sociala medier</h1>
   <br>
-  Välj fil att ladda upp:
+  <strong>Välj fil att ladda upp:</strong>
+  <br><br>
   <input type="file" name="file">
-
   <br><br>
 
-<label for="logo">Välj färg på loggan:</label>
+<strong><label for="logo">Välj färg på loggan:</label></strong>
+<br><br>
 <select name="logo" id="logo">
   <option value="svart">svart</option>
   <option value="vit">vit</option>
@@ -19,7 +25,8 @@
 
 <br><br>
 
-<label for="logo">Välj anpassad storlek till:</label>
+<strong><label for="logo">Välj anpassad storlek till:</label></strong>
+<br><br>
 <select name="size" id="size">
   <option value="facebook">facebook</option>
   <option value="instagram">instagram</option>
@@ -27,10 +34,10 @@
 
 <br><br>
 
-<input type="submit" value="Klar" name="submit">
+<input class="submitbutton" type="submit" value="Klar" name="submit">
 
 </form>
-
+</div>
 
 </body>
 </html>
