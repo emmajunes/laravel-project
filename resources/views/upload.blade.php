@@ -6,7 +6,7 @@
   </head>
 <body>
 
-<div>
+<div class = "contentwrapper">
 <form method="post" action="{{route('upload')}}" enctype="multipart/form-data">
   @csrf
   <h1>Bildverktyg för sociala medier</h1>
@@ -34,10 +34,9 @@
 
 <br><br>
 
-<input class="submitbutton" type="submit" value="Klar" name="submit">
+<input class="submitbutton" type="submit" value="Skapa" name="submit">
 
 </form>
 </div>
-
 </body>
 </html>

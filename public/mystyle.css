@@ -18,24 +18,32 @@ select {
 
 body {
     background-color: #4faf87;
+    background-image: linear-gradient(#4faf87, white) ;
     font-family: "Trirong", serif;
     
-    
-
     }
 
-    
-div {
+
+.contentwrapper {
    
     font-size: 22px;
     text-align: center;
     border: dotted black;
     border-radius: 2rem;
     width: 50%;
-    margin: 50px;
     padding: 50px;
-
+    margin: 50px auto;
 }
+
+img{
+
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 30px;
+
+}    
+    
 
 .downloadbutton {
     width: 100px;
@@ -50,8 +58,17 @@ div {
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
     cursor: pointer;
+    text-align: center;
+
 
   }
 
- 
+  .movebutton
+  {
+    width: 100%;
+    text-align: center;
+  }
+
+
+
     

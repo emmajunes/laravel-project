@@ -5,12 +5,16 @@
 </head>
 <body>
 
+
 <img src="{{$img}}">
 
+
 <br>
 <br>
 
+<div class="movebutton">
 <a href="{{$img}}" class="downloadbutton" download>Klicka för att ladda ner</a>
+</div>
 
 
 </body>
