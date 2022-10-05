@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
 Route::get('/upload', [UploadController::class, 'uploadForm']); 
 
 Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload'); //(sätta ->name är bra så man slipper ändra url)
+
+Route::post('/photos', [ApiController::class, 'generateImage'])->name('apiUpload');
 
 
 

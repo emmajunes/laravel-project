@@ -51,7 +51,6 @@ class UploadController extends Controller
         return view ('uploadedFile',['img' => asset('storage') . '/' . $image->getClientOriginalName()]); 
        //asset är en säkrare väg att länka till app/public
     }
-
   
     
   
