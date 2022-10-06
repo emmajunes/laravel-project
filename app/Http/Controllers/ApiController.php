@@ -28,7 +28,7 @@ class ApiController extends Controller
      Variabel: textboxWidth (optional, dock required att den inte är större än själva bredden på bilden)
     
     *Möjlighet att kunna göra bilden mörkare för att öka läsbarheten.
-      Variabel: brightness (optinal: default vanlig ljusstyrka)
+      Variabel: brightness (optinal: default vanlig ljusstyrka).
     
     */
 
@@ -48,7 +48,6 @@ class ApiController extends Controller
         $brightness = $request->brightness;
         $fontSize =$request->fontSize;
         $textboxWidth = $request->textboxWidth;
-        $textboxPosition = ($width-$textboxWidth)/2;
 
 
         //Plockar ut bildfilen från requesten och sparar i image variabeln.
@@ -56,21 +55,27 @@ class ApiController extends Controller
     
         
         if (!is_numeric($width) || !is_numeric($height)){
-            array_push($error, 'Width and height are required and needs to be numeric');
+            array_push($error, 'Width and height are required for image and needs to be numeric');
         }
 
         if ($image === null){
             array_push($error, "Image is required");
         }
 
+        if (!is_numeric($fontSize) && $fontSize != null){
+            array_push($error, "fontSize needs to be a numeric value");
+        }
+
         if ($textboxWidth > $width){
-            array_push($error, "Width for textbox is too big");
+            array_push($error, "textboxWidth can not be bigger than the width");
         }
     
         if ($error != null){
             return response()->json (['error' => $error],400);
         }
 
+        $width = (int)$width;
+        $height = (int)$height;
 
         $image->storeAs('public',$image->getClientOriginalName());
         $img = Image::make(storage_path('app/public').'/'.$image->getClientOriginalName());
@@ -88,6 +93,8 @@ class ApiController extends Controller
             $img->insert($logo,$position, 10, 10);   
         }
         
+        $textboxPosition = ($width-$textboxWidth)/2;
+
         $coreImage = $img->getCore();
         $box = new Box($coreImage);
         $box->setBox($textboxPosition, null, $textboxWidth, $height);
